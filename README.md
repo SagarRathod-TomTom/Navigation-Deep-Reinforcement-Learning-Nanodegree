@@ -92,3 +92,7 @@ optional arguments:
 python main.py --unity_env_path path/to/BananaEnv
 ```
 The process terminates when the agent achieves the average score of 13 or more.
+
+
+## Implementation Details:
+Checkout [Report.md](Report.md) for in-depth implementation details.
