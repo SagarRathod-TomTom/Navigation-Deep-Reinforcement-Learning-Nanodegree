@@ -2,6 +2,7 @@ import numpy as np
 import random
 from collections import namedtuple, deque
 from pydantic import BaseModel
+import json
 
 import torch
 import torch.nn.functional as F
@@ -22,7 +23,7 @@ class Config(BaseModel):
     tau: float = 1e-3  # for soft update of target parameters
     lr: float = 1e-3  # learning rate
     update_every: int = 4  # how often to update the network
-    show_graphics: bool = True  # Weather to show unity simulator during model training
+    graphics: bool = True  # Weather to show unity simulator during model training
     seed: int = 42  # Random seed
 
 
@@ -70,7 +71,7 @@ class Agent:
         # Initialize time step (for updating every UPDATE_EVERY steps)
         self.t_step = 0
 
-        print("Agent Config:", config.json())
+        print("Agent Config:", json.dumps(config.json(), indent=4))
 
     def step(self, state, action, reward, next_state, done):
         # Save experience in replay memory

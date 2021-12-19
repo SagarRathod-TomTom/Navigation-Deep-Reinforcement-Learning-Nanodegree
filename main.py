@@ -36,7 +36,7 @@ def init_unity_environment(path_to_unity_env, show_graphics=True):
 def run(config: Config) -> int:
 
     env, brain_name, state_size, action_size = init_unity_environment(path_to_unity_env=config.unity_env_path,
-                                                                      show_graphics=config.show_graphics)
+                                                                      show_graphics=config.graphics)
     agent = Agent(state_size=state_size, action_size=action_size, config=config)
     train_agent(agent, env, brain_name)
 
